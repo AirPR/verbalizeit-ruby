@@ -4,12 +4,12 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'verbalizeit/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "verbalizeit"
-  spec.version       = Verbalizeit::VERSION
-  spec.authors       = ["ryane"]
+  spec.name          = "verbalizeit-ruby"
+  spec.version       = VerbalizeIt::VERSION
+  spec.authors       = ["Ryan Eschinger"]
   spec.email         = ["ryanesc@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = %q{Simple API wrapper for the VerbalizeIt Api}
+  spec.summary       = %q{Ruby wrapper for the VerbalizeIt Api}
   spec.homepage      = ""
   spec.license       = "MIT"
 
