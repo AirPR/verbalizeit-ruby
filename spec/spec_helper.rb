@@ -1,6 +1,7 @@
-RSrequire "rubygems"
+require "rubygems"
 require "bundler/setup"
 require "verbalizeit"
 
-Rspec.configure do |config|
+RSpec.configure do |config|
+  # all defaults so far
 end
