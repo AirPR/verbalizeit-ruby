@@ -1,0 +1,44 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://sandboxapi.verbalizeit.com/v1/languages.json?auth_token=12345
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.1.19
+      Date:
+      - Mon, 17 Feb 2014 04:09:29 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Etag:
+      - '"bc4a6816c2fbfce2270f893e6ac53cee"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - d534c5fad1be018e72dc1234e4d146c4
+      X-Runtime:
+      - '0.030380'
+      X-Rack-Cache:
+      - miss
+    body:
+      encoding: UTF-8
+      string: '[{"name":"English","language_code":"en"},{"name":"Spanish","language_code":"es"},{"name":"Hindi","language_code":"hi"},{"name":"Mandarin","language_code":"zh"},{"name":"German","language_code":"de"},{"name":"Portuguese","language_code":"pt"},{"name":"French","language_code":"fr"}]'
+    http_version: 
+  recorded_at: Mon, 17 Feb 2014 04:09:29 GMT
+recorded_with: VCR 2.8.0
