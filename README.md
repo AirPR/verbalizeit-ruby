@@ -1,6 +1,8 @@
 # Verbalizeit
 
-TODO: Write a gem description
+A thin ruby wrapper around the [VerbalizeIt Api](http://www.verbalizeit.com/verbalizeit-for/developers).
+
+*Note: right now, only the text api is covered here.*
 
 ## Installation
 
@@ -18,7 +20,18 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Instantiate a client
+
+    client = VerbalizeIt::Client.new(api_key: "xxx",
+                                     api_url: "https://sandboxapi.verbalizeit.com")
+
+### Get a list of supported languages
+
+    client.languages
+
+### Submit some text for translation
+
+    client.basic_text("es", "Hello", "http://example.com/callback")
 
 ## Contributing
 
