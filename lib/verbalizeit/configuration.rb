@@ -1,8 +1,8 @@
 module VerbalizeIt
   module Configuration
-    VALID_OPTIONS = [ :api_key, :api_url ]
+    VALID_OPTIONS = [ :api_key, :api_url, :api_version]
     DEFAULT_API_KEY = "12345"
-    DEFAULT_API_URL = "http://sandboxapi.verbalizeit.com"
+    DEFAULT_API_URL = "https://stagingapi.verbalizeit.com"
     DEFAULT_API_VERSION = "v2"
 
     attr_accessor *VALID_OPTIONS

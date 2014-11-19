@@ -1,7 +1,7 @@
 module VerbalizeIt
   class Client
-    include HTTParty
-    include Text
+    include HTTMultiParty
+    include Language
     include Error
 
     attr_accessor *Configuration::VALID_OPTIONS
@@ -91,8 +91,8 @@ module VerbalizeIt
     #    ]
     #
     #  }
-    def tasks
-      get("/#{api_version}/tasks.json")
+    def tasks(options={})
+      get("/#{api_version}/tasks.json", options)
     end
 
     ##
@@ -187,7 +187,7 @@ module VerbalizeIt
     # Start a task in preview state. This kicks off work by VerbalizeIt and the translator community.
     #
     # @param  [String]    task_id
-    # @return [Hash]      Status: 200 OK
+    # @return [NA]        Status: 200 OK
     def start_task(task_id)
       post("/#{api_version}/tasks/#{task_id}/start.json")
     end
@@ -196,7 +196,7 @@ module VerbalizeIt
     # Download a completed file. Task must be in the complete state.
     #
     # @param  [String]    task_id
-    # @return [Hash]      File download   Status: 200 OK
+    # @return [String]    File download   Status: 200 OK
     def download_completed_file(task_id)
       get("/#{api_version}/tasks/#{task_id}/completed_file.json")
     end
@@ -204,14 +204,19 @@ module VerbalizeIt
     private
 
     def get(path, options = {})
-      opts = { query: options.merge(auth_token: api_key) }
-      handle_response(self.class.get("#{api_url}#{path}", opts).parsed_response)
+      opts = { query: options, timeout: timeout(options), headers: {"X-API-KEY" => api_key} }
+      handle_response(self.class.get("#{api_url}#{path}", opts))
     end
 
     def post(path, options = {})
-      opts = { body: options.merge(auth_token: api_key) }
-      handle_response(self.class.post("#{api_url}#{path}", opts).parsed_response)
+      opts = { body: options, timeout: timeout(options), headers: {"X-API-KEY" => api_key} }
+      handle_response(self.class.post("#{api_url}#{path}", opts))
     end
 
+    def timeout(options)
+      timeout = options.delete(:timeout)
+      timeout = 120 if timeout.nil?
+      timeout
+    end
   end
 end
